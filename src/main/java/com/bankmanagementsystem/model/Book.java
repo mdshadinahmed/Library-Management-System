@@ -1,23 +1,38 @@
 package com.bankmanagementsystem.model;
 
+import java.time.LocalDate;
+
 public class Book {
 
     private int bookID;
     private String bookName;
     private String authorName;
     private double price;
+    private String category;
+
+    private boolean issued;
+    private int issuedStudentId;
+    private LocalDate issueDate;
 
     // Default Constructor to reduce constructor mismatch exception
     public Book(){
         super();
     }
 
-    public Book(int bookID, String bookName, String authorName, double price){
+
+
+
+    public Book(int bookID, String bookName, String authorName, double price , String category){
         super();
         this.bookID = bookID;
         this.bookName = bookName;
         this.authorName = authorName;
         this.price = price;
+        this.category = category;
+
+        this.issued = false;
+        this.issueDate = null;
+        this.issuedStudentId = 0;
     }
 
     // getter setter
@@ -65,5 +80,28 @@ public class Book {
                 ", authorName='" + authorName + '\'' +
                 ", price=" + price +
                 '}' + "\n";
+    }
+
+    public void displayBookInfo(){
+
+        System.out.println("--------------------------------");
+
+        System.out.println("Book ID         : " + bookID);
+        System.out.println("Boon Name       : " + bookName);
+        System.out.println("Author Name     : " + authorName);
+        System.out.println("Book Category   : " + category);
+        System.out.println("Book Price      : " + price);
+
+        if (issued){
+
+            System.out.println("Status      : Issued");
+            System.out.println("Student ID  : " + issuedStudentId);
+            System.out.println("Issued Data : " + issueDate);
+
+        }else {
+            System.out.println("Status      : Available");
+        }
+
+        System.out.println("--------------------------------");
     }
 }
