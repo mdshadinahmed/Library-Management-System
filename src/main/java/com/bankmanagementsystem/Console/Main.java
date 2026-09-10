@@ -14,18 +14,26 @@ public class Main {
 
         Scanner scanner = new Scanner(in);
 
-        // =======================
-        // Create Library
-        // =======================
+
+        /**
+         * Create Library Object
+         *
+         * Create Library Here to share the same library for every service
+         */
+
 
         Library library = new Library();
 
-        // ============================
-        // Create Service
-        // ============================
+        /**
+         * Create Service Class and send library object
+         */
+
 
         BookServiceLayer bookServiceLayer =
                 new BookServiceLayer(library);
+
+
+
 
         while (true){
 
@@ -54,17 +62,21 @@ public class Main {
                 out.println("Enter Your Choice");
                 int choice = scanner.nextInt();
 
-                // Choice Validation
+                /**
+                 * Check Validation
+                 */
+
                 if (choice>12 || choice<=0){
                     out.println("Choice should be 1-12");
                 }
+
                 switch (choice){
 
-
-
-                    // ===========================
-                    // 1. Add Book
-                    // ===========================
+                    /**
+                     * 1. Add Book
+                     *
+                     * Adds a new book to the library collections
+                     */
                     case 1:
                         try{
                         out.println("Enter Book Id : ");
@@ -89,7 +101,7 @@ public class Main {
                         }catch (Exception e){
                             out.println("Error : " + e.getMessage());
                         }
-                        // ==========================================
+
 
 
 
