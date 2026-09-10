@@ -21,8 +21,8 @@ public class Library {
         return books;
     }
 
-    public void addBooks(List<Book> books) {
-        this.books = books;
+    public void addBook(Book books) {
+        this.books.add(books);
     }
 
     public List<Student> getStudents() {
