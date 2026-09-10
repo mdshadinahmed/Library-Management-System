@@ -1,4 +1,4 @@
-package com.bankmanagementsystem.model.Database;
+package com.bankmanagementsystem.Database;
 
 import com.bankmanagementsystem.model.Book;
 import com.bankmanagementsystem.model.Student;
