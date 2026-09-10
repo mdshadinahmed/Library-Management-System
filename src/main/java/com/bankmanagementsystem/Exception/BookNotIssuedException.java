@@ -1,4 +1,10 @@
 package com.bankmanagementsystem.Exception;
 
-public class BookNotIssuedException {
+import com.bankmanagementsystem.model.Book;
+
+public class BookNotIssuedException extends Exception{
+
+    public BookNotIssuedException(String message){
+        super(message);
+    }
 }
