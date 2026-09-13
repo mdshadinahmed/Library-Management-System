@@ -29,7 +29,7 @@ public class Library {
         return students;
     }
 
-    public void addStudents(List<Student> students) {
-        this.students = students;
+    public void addStudents(Student students) {
+        this.students.add(students);
     }
 }
