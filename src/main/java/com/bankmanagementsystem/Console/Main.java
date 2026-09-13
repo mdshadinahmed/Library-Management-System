@@ -43,16 +43,16 @@ public class Main {
             out.println("=============================\n");
 
             out.println("1. Add Book");
-            out.println("2. Register Student");
-            out.println("3. Issue Book");
-            out.println("4. Return Book");
-            out.println("5. Search Book");
-            out.println("6. Show Available Books");
-            out.println("7. Show Issued Books");
-            out.println("8. Calculate Fine");
-            out.println("9. Remove Book");
-            out.println("10. Show All Books");
-            out.println("11. Show All Students");
+            out.println("2. Show All Students");
+            out.println("3. Register Student");
+            out.println("4. Issue Book");
+            out.println("5. Return Book");
+            out.println("6. Search Book");
+            out.println("7. Show Available Books");
+            out.println("8. Show Issued Books");
+            out.println("9. Calculate Fine");
+            out.println("10. Remove Book");
+            out.println("11. Show All Books");
             out.println("12. Exits From Library");
 
 
