@@ -3,9 +3,13 @@ package com.bankmanagementsystem.Console;
 import com.bankmanagementsystem.Database.Library;
 import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
 import com.bankmanagementsystem.Exception.DuplicateBookException;
+import com.bankmanagementsystem.Exception.DuplicateStudentFoundException;
 import com.bankmanagementsystem.Services.BookServiceLayer;
+import com.bankmanagementsystem.Services.StudentServiceLayer;
 import com.bankmanagementsystem.model.Book;
+import com.bankmanagementsystem.model.Student;
 
+import java.rmi.StubNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.System.*;
@@ -18,7 +22,7 @@ public class Main {
 
         /**
          * Create Library Object
-         *
+         * ***************************************************************
          * Create Library Here to share the same library for every service
          */
 
@@ -26,12 +30,14 @@ public class Main {
         Library library = new Library();
 
         /**
-         * Create Service Class and send library object
+         * Create Service Classes and send library object
          */
-
 
         BookServiceLayer bookServiceLayer =
                 new BookServiceLayer(library);
+
+        StudentServiceLayer studentServiceLayer =
+                new StudentServiceLayer(library);
 
 
 
@@ -107,7 +113,7 @@ public class Main {
 
                         /**
                          *
-                         * 1. See All Books
+                         * 2. See All Books
                          * See All books from library collections  by using BookService Class Function
                          */
 
@@ -117,6 +123,46 @@ public class Main {
                         }catch (BookNotFoundExceptions e){
                             out.println("Error : " + e.getMessage());
                         }
+                        break;
+
+                    /**
+                     *
+                     * 1. See All Books
+                     * See All books from library collections  by using BookService Class Function
+                     */
+
+                    case 3:
+
+
+                        out.println("Enter Student ID: ");
+                        int id = scanner.nextInt();
+
+                        /**
+                         * Buffer Clear
+                         */
+                        scanner.nextLine();
+
+                        out.println("Enter Student Name : ");
+                        String name = scanner.nextLine();
+
+                        out.println("Enter Student Dept. : ");
+                        String dept = scanner.nextLine();
+
+                        out.println("Enter Student Phone : ");
+                        String phone = scanner.nextLine();
+
+                        out.println("Enter Student Address : ");
+                        String address = scanner.nextLine();
+
+
+                        try{
+                            studentServiceLayer.registerStudent(new Student(id,name,dept,phone,address));
+                        }catch (DuplicateStudentFoundException e){
+                            out.println("Error : "+e.getMessage());
+                        }
+
+
+
                         break;
 
 
