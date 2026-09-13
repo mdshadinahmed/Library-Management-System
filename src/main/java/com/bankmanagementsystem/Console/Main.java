@@ -1,6 +1,7 @@
 package com.bankmanagementsystem.Console;
 
 import com.bankmanagementsystem.Database.Library;
+import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
 import com.bankmanagementsystem.Exception.DuplicateBookException;
 import com.bankmanagementsystem.Services.BookServiceLayer;
 import com.bankmanagementsystem.model.Book;
@@ -101,6 +102,13 @@ public class Main {
                         }catch (Exception e){
                             out.println("Error : " + e.getMessage());
                         }
+                    case 2:
+                        try{
+                             bookServiceLayer.showAllBooks();
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }
+                        break;
 
 
 

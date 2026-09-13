@@ -1,6 +1,7 @@
 package com.bankmanagementsystem.Services;
 
 import com.bankmanagementsystem.Database.Library;
+import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
 import com.bankmanagementsystem.Exception.DuplicateBookException;
 import com.bankmanagementsystem.model.Book;
 
@@ -33,6 +34,22 @@ public class BookServiceLayer {
         }
         library.addBook(book);
         System.out.println("Book Successfully Added!!");
+
+    }
+
+
+    //===============================================
+    // Add Book Function
+    //===============================================
+    public void showAllBooks() throws BookNotFoundExceptions {
+
+        if (!library.getBooks().isEmpty()){
+            for(Book book : library.getBooks()){
+                book.displayBookInfo();
+            }
+        }else {
+            throw new BookNotFoundExceptions("Book no available!");
+        }
 
     }
 
