@@ -21,9 +21,16 @@ public class BookServiceLayer {
     }
 
     /**
-     *
-     * Add Book Function
-     * Here by using add method we are able to add book in library................
+     Add Book Function
+     Before adding the book, this method checks
+     whether a book with same ID already exists or not in the Library.
+
+     @param book the book to be added to the library
+     @throws DuplicateBookException if a book with same
+             ID already Exists
+
+     @see Library
+     @see com.bankmanagementsystem.Console.Main
      */
 
     public void addBook(Book book) throws DuplicateBookException {
@@ -41,9 +48,14 @@ public class BookServiceLayer {
     }
 
     /**
-     *
-     * Show All Book Function
-     * Here by using ShowAllBooks function we are able to see all books that are available in library................
+
+     Display all books.
+     Here by using ShowAllBooks function we are able to see all books that are available in library
+     @throws BookNotFoundExceptions if a book not available in the library
+
+     @see Library
+     @see com.bankmanagementsystem.Console.Main
+
      */
 
     public void showAllBooks() throws BookNotFoundExceptions {

@@ -14,6 +14,53 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 import static java.lang.System.*;
 
+/**
+
+ ================================================================
+ LIBRARY MANAGEMENT SYSTEM
+ ================================================================
+
+
+ Main Class
+
+
+ This class serves as the entry point of the Library Management System.
+ It provides the console-based user interface and handles user input
+ for different library operations.
+
+
+ Responsibilities:
+
+
+ Display the main menu
+
+
+ Accept user input
+
+
+ Manage book-related operations
+
+
+ Manage student-related operations
+
+
+ Connect Service Layer with the console interface
+
+
+ Handle user input validation and exceptions
+
+
+ Architecture:
+ Console → Service Layer → Library (Database)
+
+
+ @author MD SHADIN AHMED
+ @version 1.0
+ @since 1.0
+ */
+
+
+
 public class Main {
     public static void main(String[] args) {
 
