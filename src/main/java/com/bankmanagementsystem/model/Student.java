@@ -12,12 +12,15 @@ public class Student {
         super();
     }
 
-    public Student(int studentId, String address, String phone, String dept, String name) {
+    public Student(int studentId, String name, String dept, String phone, String address ) {
         this.studentId = studentId;
-        this.address = address;
-        this.phone = phone;
-        this.dept = dept;
         this.name = name;
+        this.dept = dept;
+        this.phone = phone;
+        this.address = address;
+
+
+
     }
 
     public int getStudentId() {
