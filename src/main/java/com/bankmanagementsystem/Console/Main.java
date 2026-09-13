@@ -20,7 +20,7 @@ public class Main {
         Scanner scanner = new Scanner(in);
 
 
-        /**
+        /*
          * Create Library Object
          * ***************************************************************
          * Create Library Here to share the same library for every service
@@ -29,7 +29,7 @@ public class Main {
 
         Library library = new Library();
 
-        /**
+        /*
          * Create Service Classes and send library object
          */
 
@@ -50,8 +50,9 @@ public class Main {
             out.println("=============================\n");
 
             out.println("1. Add Book");
-            out.println("2. Show All Students");
+            out.println("2. Show All Books");
             out.println("3. Register Student");
+            out.println("4. Show All Student");
             out.println("4. Issue Book");
             out.println("5. Return Book");
             out.println("6. Search Book");
@@ -69,7 +70,7 @@ public class Main {
                 out.println("Enter Your Choice");
                 int choice = scanner.nextInt();
 
-                /**
+                /*
                  *
                  * Check Validation
                  */
@@ -80,7 +81,7 @@ public class Main {
 
                 switch (choice){
 
-                    /**
+                    /*
                      *
                      * 1. Add Book
                      * Add a new book to the library collections  by using BookService Class Function
@@ -111,8 +112,7 @@ public class Main {
                             out.println("Error : " + e.getMessage());
                         }
 
-                        /**
-                         *
+                        /*
                          * 2. See All Books
                          * See All books from library collections  by using BookService Class Function
                          */
@@ -125,8 +125,7 @@ public class Main {
                         }
                         break;
 
-                    /**
-                     *
+                    /*
                      * 1. See All Books
                      * See All books from library collections  by using BookService Class Function
                      */
@@ -137,7 +136,7 @@ public class Main {
                         out.println("Enter Student ID: ");
                         int id = scanner.nextInt();
 
-                        /**
+                        /*
                          * Buffer Clear
                          */
                         scanner.nextLine();
