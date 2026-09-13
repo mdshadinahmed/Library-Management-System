@@ -20,9 +20,12 @@ public class BookServiceLayer {
 
     }
 
-    //===============================================
-    // Add Book Function
-    //===============================================
+    /**
+     *
+     * Add Book Function
+     * Here by using add method we are able to add book in library................
+     */
+
     public void addBook(Book book) throws DuplicateBookException {
 
         for (Book exitingBook : library.getBooks()){
@@ -37,10 +40,12 @@ public class BookServiceLayer {
 
     }
 
+    /**
+     *
+     * Show All Book Function
+     * Here by using ShowAllBooks function we are able to see all books that are available in library................
+     */
 
-    //===============================================
-    // Add Book Function
-    //===============================================
     public void showAllBooks() throws BookNotFoundExceptions {
 
         if (!library.getBooks().isEmpty()){

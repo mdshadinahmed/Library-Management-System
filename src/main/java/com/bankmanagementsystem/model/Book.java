@@ -15,13 +15,13 @@ public class Book {
     private int issuedStudentId;
     private LocalDate issueDate;
 
-    // Default Constructor to reduce constructor mismatch exception
+    /**
+     * Default Constructor to reduce constructor mismatch exception
+      */
+
     public Book(){
         super();
     }
-
-
-
 
     public Book(int bookID, String bookName, String authorName, String category, double price ){
         super();
@@ -37,8 +37,9 @@ public class Book {
         this.issuedStudentId = 0;
     }
 
-    // getter setter
-
+    /**
+     *  getter setter
+      */
 
     public int getBookID() {
         return bookID;
@@ -72,7 +73,10 @@ public class Book {
         this.bookName = bookName;
     }
 
-    // to String method
+    /**
+     *  to String method
+      */
+
 
     @Override
     public String toString() {

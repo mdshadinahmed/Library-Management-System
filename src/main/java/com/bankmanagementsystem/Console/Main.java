@@ -64,6 +64,7 @@ public class Main {
                 int choice = scanner.nextInt();
 
                 /**
+                 *
                  * Check Validation
                  */
 
@@ -74,10 +75,11 @@ public class Main {
                 switch (choice){
 
                     /**
-                     * 1. Add Book
                      *
-                     * Adds a new book to the library collections
+                     * 1. Add Book
+                     * Add a new book to the library collections  by using BookService Class Function
                      */
+
                     case 1:
                         try{
                         out.println("Enter Book Id : ");
@@ -102,6 +104,13 @@ public class Main {
                         }catch (Exception e){
                             out.println("Error : " + e.getMessage());
                         }
+
+                        /**
+                         *
+                         * 1. See All Books
+                         * See All books from library collections  by using BookService Class Function
+                         */
+
                     case 2:
                         try{
                              bookServiceLayer.showAllBooks();
