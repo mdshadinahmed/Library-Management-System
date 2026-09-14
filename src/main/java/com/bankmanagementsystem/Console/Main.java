@@ -130,8 +130,16 @@ public class Main {
                 switch (choice){
 
                     /*
-                      1. Add Book
-                         Add a new book to the library collections  by using BookService Class Function addBooks(Book book)
+                     * 1. Add Book
+                     *
+                     *    Collects book information from the user and creates a new
+                     *    Book object with the provided details.
+                     *
+                     *    The Book object is then passed to BookServiceLayer to be
+                     *    added to the shared Library collection.
+                     *
+                     *    DuplicateBookException is handled to prevent adding a book
+                     *    with an ID that already exists in the library.
                      */
 
                     case 1:
@@ -158,11 +166,16 @@ public class Main {
                         }catch (Exception e){
                             out.println("Error : " + e.getMessage());
                         }
-
-                        /*
-                          2. See All Books
-                             See All books from library collections  by using BookService Class Function
-                         */
+                        break;
+                    /*
+                     * 2. View All Books
+                     *
+                     *    Displays all books currently available in the shared Library
+                     *    collection by using the BookServiceLayer.
+                     *
+                     *    BookNotFoundExceptions is handled when no book is available
+                     *    in the library collection.
+                     */
 
                     case 2:
                         try{
@@ -172,11 +185,18 @@ public class Main {
                         }
                         break;
 
-                       /*
-                         3. Register Student
-                            Register a new Student in Library By creating object and pass student service
-                                        so that student can add same library where stored the books.
-                       */
+                    /*
+                     * 3. Register Student
+                     *
+                     *    Collects student information from the user and creates a new
+                     *    Student object with the provided details.
+                     *
+                     *    The Student object is then passed to StudentServiceLayer for
+                     *    registration in the shared Library collection.
+                     *
+                     *    DuplicateStudentFoundException is handled to prevent registering
+                     *    a student with an ID that already exists in the library.
+                     */
 
                     case 3:
 
@@ -208,10 +228,15 @@ public class Main {
                         }
                         break;
 
-                        /*
-                          4. See All Student
-                             See All Students from library collections  by using StudentService Class Function
-                         */
+                    /*
+                     * 4. View All Students
+                     *
+                     *    Displays all registered students from the library collection
+                     *    by using the StudentServiceLayer.
+                     *
+                     *    If no student is available, StudentNotAvailableException
+                     *    is handled and an appropriate error message is displayed.
+                     */
 
                     case 4:
 
@@ -220,14 +245,24 @@ public class Main {
                         }catch (StudentNotAvailableException e){
                             out.println("Error : " + e.getMessage());
                         }
-
                         break;
 
-                        /*
-                          4. See All Student
-                             See All Students from library collections  by using StudentService Class Function
-                         */
-
+                    /*
+                     * 5. Issue Book
+                     *
+                     *    Issue a selected book to a registered student by using the
+                     *    BookServiceLayer. The user is required to provide both the
+                     *    Book ID and Student ID.
+                     *
+                     *    The operation may fail if:
+                     *      - The specified book does not exist.
+                     *      - The specified student is not available.
+                     *      - The book has already been issued.
+                     *
+                     *    Each expected exception is handled separately to display a
+                     *    meaningful error message to the user. A general Exception
+                     *    handler is also included to handle any unexpected errors.
+                     */
                     case 5:
 
                         out.println("Enter Book Id : ");
