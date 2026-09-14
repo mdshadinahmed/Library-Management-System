@@ -73,6 +73,38 @@ public class Book {
         this.bookName = bookName;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public boolean isIssued() {
+        return issued;
+    }
+
+    public void setIssued(boolean issued) {
+        this.issued = issued;
+    }
+
+    public int getIssuedStudentId() {
+        return issuedStudentId;
+    }
+
+    public void setIssuedStudentId(int issuedStudentId) {
+        this.issuedStudentId = issuedStudentId;
+    }
+
+    public LocalDate getIssueDate() {
+        return issueDate;
+    }
+
+    public void setIssueDate(LocalDate issueDate) {
+        this.issueDate = issueDate;
+    }
+
     /**
      *  to String method
       */
@@ -92,20 +124,19 @@ public class Book {
 
         System.out.println("--------------------------------");
 
-        System.out.println("Book ID         : " + bookID);
-        System.out.println("Boon Name       : " + bookName);
-        System.out.println("Author Name     : " + authorName);
-        System.out.println("Book Category   : " + category);
-        System.out.println("Book Price      : " + price);
+           System.out.println("Book ID         : " + bookID);
+           System.out.println("Boon Name       : " + bookName);
+           System.out.println("Author Name     : " + authorName);
+           System.out.println("Book Category   : " + category);
+           System.out.println("Book Price      : " + price);
 
         if (issued){
-
-            System.out.println("Status      : Issued");
-            System.out.println("Student ID  : " + issuedStudentId);
-            System.out.println("Issued Data : " + issueDate);
+            System.out.println("Status         : Issued");
+            System.out.println("Student ID     : " + issuedStudentId);
+            System.out.println("Issued Data    : " + issueDate);
 
         }else {
-            System.out.println("Status      : Available");
+            System.out.println("Status         : Available");
         }
 
         System.out.println("--------------------------------");
