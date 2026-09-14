@@ -1,10 +1,7 @@
 package com.bankmanagementsystem.Console;
 
 import com.bankmanagementsystem.Database.Library;
-import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
-import com.bankmanagementsystem.Exception.DuplicateBookException;
-import com.bankmanagementsystem.Exception.DuplicateStudentFoundException;
-import com.bankmanagementsystem.Exception.StudentNotAvailableException;
+import com.bankmanagementsystem.Exception.*;
 import com.bankmanagementsystem.Services.BookServiceLayer;
 import com.bankmanagementsystem.Services.StudentServiceLayer;
 import com.bankmanagementsystem.model.Book;
@@ -105,15 +102,15 @@ public class Main {
             out.println("2. Show All Books");
             out.println("3. Register Student");
             out.println("4. Show All Student");
-            out.println("4. Issue Book");
-            out.println("5. Return Book");
-            out.println("6. Search Book");
-            out.println("7. Show Available Books");
-            out.println("8. Show Issued Books");
-            out.println("9. Calculate Fine");
-            out.println("10. Remove Book");
-            out.println("11. Show All Books");
-            out.println("12. Exits From Library");
+            out.println("5. Issue Book");
+            out.println("6. Return Book");
+            out.println("7. Search Book");
+            out.println("8. Show Available Books");
+            out.println("9. Show Issued Books");
+            out.println("10. Calculate Fine");
+            out.println("11. Remove Book");
+            out.println("12. Show All Books");
+            out.println("13. Exits From Library");
 
 
 
@@ -221,6 +218,33 @@ public class Main {
                         try{
                             studentServiceLayer.showAllStudent();
                         }catch (StudentNotAvailableException e){
+                            out.println("Error : " + e.getMessage());
+                        }
+
+                        break;
+
+                        /*
+                          4. See All Student
+                             See All Students from library collections  by using StudentService Class Function
+                         */
+
+                    case 5:
+
+                        out.println("Enter Book Id : ");
+                        int bookId = scanner.nextInt();
+
+                        out.println("Enter Student Id : ");
+                        int studentId = scanner.nextInt();
+
+                        try {
+                            bookServiceLayer.issueBook(bookId, studentId);
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }catch (StudentNotAvailableException e){
+                            out.println("Error : "  + e.getMessage());
+                        }catch (BookAlreadyIssuedException e){
+                            out.println("Error : " + e.getMessage());
+                        }catch (Exception e){
                             out.println("Error : " + e.getMessage());
                         }
 
