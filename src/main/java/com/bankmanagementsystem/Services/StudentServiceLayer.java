@@ -2,7 +2,7 @@ package com.bankmanagementsystem.Services;
 
 import com.bankmanagementsystem.Database.Library;
 import com.bankmanagementsystem.Exception.DuplicateStudentFoundException;
-import com.bankmanagementsystem.Exception.StudentNotFoundException;
+import com.bankmanagementsystem.Exception.StudentNotAvailableException;
 import com.bankmanagementsystem.model.Student;
 
 
@@ -75,13 +75,13 @@ public class StudentServiceLayer {
      Find a student by their id from the Library
 
      @param studentId the student will be found
-     @throws StudentNotFoundException if a specific student not found in Library
+     @throws StudentNotAvailableException if a specific student not found in Library
 
      @see Library
      @see com.bankmanagementsystem.Console.Main
      */
 
-    public void findStudent(int studentId) throws StudentNotFoundException {
+    public void findStudent(int studentId) throws StudentNotAvailableException {
 
         Student isFound = null;
 
@@ -98,7 +98,7 @@ public class StudentServiceLayer {
         if (isFound != null){
             isFound.displayStudentInfo();
         }else {
-            throw  new StudentNotFoundException("Student Not Found!");
+            throw  new StudentNotAvailableException("Student Not Found!");
         }
 
 
@@ -109,19 +109,19 @@ public class StudentServiceLayer {
      See All Student From Library by using this method
 
      @author  Shadin Ahmed
-     @throws StudentNotFoundException if Student not available in Library
+     @throws StudentNotAvailableException if Student not available in Library
 
      @see Library
      @see com.bankmanagementsystem.Console.Main
      */
 
-    public void showAllStudent() throws StudentNotFoundException{
+    public void showAllStudent() throws StudentNotAvailableException {
 
         if (library.getStudents().isEmpty()){
-            throw new StudentNotFoundException("Student Not Available!");
+            throw new StudentNotAvailableException("Student Not Available!");
         }
 
-        int count = 0;
+        int count = 1;
         System.out.println("Student List : ");
         for (Student student : library.getStudents()){
             System.out.println("Student : " + count++);
