@@ -68,16 +68,20 @@ public class Main {
 
 
         /*
-         * Create Library Object
-         * ***************************************************************
-         * Create Library Here to share the same library for every service
+          Create Library Object
+          ***************************************************************
+          Create Library Here to share the same library for every service
+
+          @see Library
+          @see BookServiceLayer
+          @see StudentServiceLayer
          */
 
 
         Library library = new Library();
 
         /*
-         * Create Service Classes and send library object
+          Create Service Classes and send library object
          */
 
         BookServiceLayer bookServiceLayer =
@@ -118,8 +122,7 @@ public class Main {
                 int choice = scanner.nextInt();
 
                 /*
-                 *
-                 * Check Validation
+                   Check Validation
                  */
 
                 if (choice>12 || choice<=0){
@@ -129,9 +132,8 @@ public class Main {
                 switch (choice){
 
                     /*
-                     *
-                     * 1. Add Book
-                     * Add a new book to the library collections  by using BookService Class Function
+                      1. Add Book
+                         Add a new book to the library collections  by using BookService Class Function addBooks(Book book)
                      */
 
                     case 1:
@@ -160,8 +162,8 @@ public class Main {
                         }
 
                         /*
-                         * 2. See All Books
-                         * See All books from library collections  by using BookService Class Function
+                          2. See All Books
+                             See All books from library collections  by using BookService Class Function
                          */
 
                     case 2:
@@ -172,13 +174,13 @@ public class Main {
                         }
                         break;
 
-                    /*
-                     * 1. See All Books
-                     * See All books from library collections  by using BookService Class Function
-                     */
+                       /*
+                         3. Register Student
+                            Register a new Student in Library By creating object and pass student service
+                                        so that student can add same library where stored the books.
+                       */
 
                     case 3:
-
 
                         out.println("Enter Student ID: ");
                         int id = scanner.nextInt();
@@ -206,13 +208,7 @@ public class Main {
                         }catch (DuplicateStudentFoundException e){
                             out.println("Error : "+e.getMessage());
                         }
-
-
-
                         break;
-
-
-
 
 
                 }
