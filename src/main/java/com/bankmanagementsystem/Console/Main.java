@@ -4,11 +4,12 @@ import com.bankmanagementsystem.Database.Library;
 import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
 import com.bankmanagementsystem.Exception.DuplicateBookException;
 import com.bankmanagementsystem.Exception.DuplicateStudentFoundException;
+import com.bankmanagementsystem.Exception.StudentNotAvailableException;
 import com.bankmanagementsystem.Services.BookServiceLayer;
 import com.bankmanagementsystem.Services.StudentServiceLayer;
 import com.bankmanagementsystem.model.Book;
 import com.bankmanagementsystem.model.Student;
-
+//import com.bankmanagementsystem.model.StudentNotFoundException;
 import java.rmi.StubNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -208,6 +209,21 @@ public class Main {
                         }catch (DuplicateStudentFoundException e){
                             out.println("Error : "+e.getMessage());
                         }
+                        break;
+
+                        /*
+                          4. See All Student
+                             See All Students from library collections  by using StudentService Class Function
+                         */
+
+                    case 4:
+
+                        try{
+                            studentServiceLayer.showAllStudent();
+                        }catch (StudentNotAvailableException e){
+                            out.println("Error : " + e.getMessage());
+                        }
+
                         break;
 
 
