@@ -220,6 +220,38 @@ public class BookServiceLayer {
      }
 
 
+    /**
+     Search Book From Library by using this method
+
+     @author  Shadin Ahmed
+
+     @throws BookNotFoundExceptions if book are not available in Library
+     @param bookID the book can be found by using this ID
+     @see Library
+     @see StudentServiceLayer
+     @see com.bankmanagementsystem.Console.Main
+     */
+
+    public void searchBook(int bookID) throws BookNotFoundExceptions{
+
+         Book findBook = null;
+
+         for (Book book : library.getBooks()){
+             if (book.getBookID() == bookID){
+                 findBook = book;
+                 break;
+             }
+         }
+
+         if (findBook != null){
+             findBook.displayBookInfo();
+         }else {
+             throw new BookNotFoundExceptions("Book not available in Library!");
+         }
+
+     }
+
+
 
 
 }

@@ -324,6 +324,16 @@ public class Main {
                         break;
 
 
+
+
+
+                    case 7:
+
+
+
+                        break;
+
+
                 }
 
             }catch (InputMismatchException e){
