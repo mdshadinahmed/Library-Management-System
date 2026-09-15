@@ -1,10 +1,7 @@
 package com.bankmanagementsystem.Services;
 
 import com.bankmanagementsystem.Database.Library;
-import com.bankmanagementsystem.Exception.BookAlreadyIssuedException;
-import com.bankmanagementsystem.Exception.BookNotFoundExceptions;
-import com.bankmanagementsystem.Exception.DuplicateBookException;
-import com.bankmanagementsystem.Exception.StudentNotAvailableException;
+import com.bankmanagementsystem.Exception.*;
 import com.bankmanagementsystem.model.Book;
 import com.bankmanagementsystem.model.Student;
 
@@ -156,14 +153,71 @@ public class BookServiceLayer {
 
      @throws BookNotFoundExceptions if book are not available in Library
      @throws StudentNotAvailableException if Student not available in Library
-     @throws BookAlreadyIssuedException if the corresponding book issued by student
-     then it will throw this exception
-
+     @throws BookNotIssuedException If book Not issued,
+                                            then only it throw book not issued Exception
      @see Library
      @see StudentServiceLayer
      @see com.bankmanagementsystem.Console.Main
      */
 
+     public void returnBook(int bookID, int studentID) throws  BookNotFoundExceptions,
+             StudentNotAvailableException, BookNotIssuedException {
+
+         // ===========================
+         // Find  Book
+         // ===========================
+
+         Book findBook = null;
+
+         for (Book book : library.getBooks()){
+
+             if (book.getBookID() == bookID){
+                 findBook = book;
+                 break;
+             }
+
+         }
+
+         if (findBook == null){
+             throw new  BookNotFoundExceptions("Book not available in Library!");
+         }
+
+         // ===========================
+         // Find  Student
+         // ===========================
+
+         Student findStudent = null;
+
+         for (Student student : library.getStudents()){
+
+             if (student.getStudentId() == studentID){
+                 findStudent = student;
+                 break;
+             }
+
+         }
+
+         if (findStudent == null){
+             throw  new StudentNotAvailableException("Student Not available in Library!");
+         }
+
+
+
+         // ==========================
+         // Return Book
+         // ==========================
+
+         if (findBook.isIssued()){
+             findBook.setIssued(false);
+             findBook.setIssuedStudentId(0);
+             findBook.setIssueDate(null);
+             System.out.println("Book Returned Successfully.");
+         } else {
+             throw new BookNotIssuedException("Book Not Issued Yet!");
+         }
+
+
+     }
 
 
 
