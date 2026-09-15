@@ -147,13 +147,24 @@ public class BookServiceLayer {
         findBook.setIssueDate(LocalDate.now());
         System.out.println("Book Successfully Issued by :  \n" + findStudent.getName() +"\n" + findStudent.getStudentId()+
                                                         "\n"+findStudent.getDept());
-
-
-
-
-
-
     }
+
+    /**
+     Return Book From Library by using this method
+
+     @author  Shadin Ahmed
+
+     @throws BookNotFoundExceptions if book are not available in Library
+     @throws StudentNotAvailableException if Student not available in Library
+     @throws BookAlreadyIssuedException if the corresponding book issued by student
+     then it will throw this exception
+
+     @see Library
+     @see StudentServiceLayer
+     @see com.bankmanagementsystem.Console.Main
+     */
+
+
 
 
 
