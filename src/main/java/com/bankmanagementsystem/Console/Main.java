@@ -98,7 +98,7 @@ public class Main {
             out.println("Library Management System");
             out.println("=============================\n");
 
-            out.println("1. Add Book");
+            out.println("1  . Add Book");
             out.println("2. Show All Books");
             out.println("3. Register Student");
             out.println("4. Show All Student");
@@ -109,8 +109,7 @@ public class Main {
             out.println("9. Show Issued Books");
             out.println("10. Calculate Fine");
             out.println("11. Remove Book");
-            out.println("12. Show All Books");
-            out.println("13. Exits From Library");
+            out.println("12. Exits From Library");
 
 
 
@@ -323,15 +322,73 @@ public class Main {
                         }
                         break;
 
-
-
-
+                    /*
+                     *    7. Search Book
+                     *
+                     *    Search book by bookId by using BookServiceLayer Method
+                     *    The operation may fail if:
+                     *      - The specified book does not exist.
+                     *
+                     *    Expected exception is handled separately to display a
+                     *    meaningful error message to the user. A general Exception
+                     *    handler is also included to handle any unexpected errors.
+                     */
 
                     case 7:
+                        out.println("Enter Book Id : ");
+                        int searchBookId = scanner.nextInt();
 
-
-
+                        try{
+                            bookServiceLayer.searchBook(searchBookId);
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }
                         break;
+
+
+                    /*
+                     *    8. Show All Available books
+                     *
+                     *    Show All Available books from Library
+                     *    The operation may fail if:
+                     *      - The specified book does not exist.
+                     *
+                     *    Expected exception is handled separately to display a
+                     *    meaningful error message to the user. A general Exception
+                     *    handler is also included to handle any unexpected errors.
+                     */
+
+
+                    case 8:
+
+                        try{
+                            bookServiceLayer.availableBooks();
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }
+                        break;
+
+                    /*
+                     *    9. Show All Issued books
+                     *
+                     *    Show All Available books from Library
+                     *    The operation may fail if:
+                     *      - The specified book does not exist.
+                     *
+                     *    Expected exception is handled separately to display a
+                     *    meaningful error message to the user. A general Exception
+                     *    handler is also included to handle any unexpected errors.
+                     */
+
+                    case 9:
+
+                        try{
+                            bookServiceLayer.showIssuedBook();
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }
+                        break;
+
 
 
                 }

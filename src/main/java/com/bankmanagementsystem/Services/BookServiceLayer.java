@@ -252,6 +252,71 @@ public class BookServiceLayer {
      }
 
 
+    /**
+     This method will work to see all not issued book from the Library
+
+     @author  Shadin Ahmed
+
+     @throws BookNotFoundExceptions if book are not available in Library
+     @see Library
+     @see StudentServiceLayer
+     @see com.bankmanagementsystem.Console.Main
+     */
+
+     public void availableBooks() throws BookNotFoundExceptions{
+
+
+        boolean found = false;
+
+        if (!library.getBooks().isEmpty()){
+            for (Book book : library.getBooks()){
+                if (!book.isIssued()){
+                    book.displayBookInfo();
+                    found = true;
+                }
+            }
+        }
+
+        if (!found){
+            throw new BookNotFoundExceptions("Available books not found!");
+        }
+
+
+
+     }
+    /**
+     This method will work to see all Issued book from the Library
+
+     @author  Shadin Ahmed
+
+     @throws BookNotFoundExceptions if book are not available in Library
+     @see Library
+     @see StudentServiceLayer
+     @see com.bankmanagementsystem.Console.Main
+     */
+
+     public void showIssuedBook(){
+
+        boolean found = false;
+
+        if (!library.getBooks().isEmpty()){
+
+            for (Book book : library.getBooks()){
+                if (book.isIssued()){
+                    book.displayBookInfo();
+                    found = true;
+                }
+            }
+
+        }
+
+        if(!found) {
+            throw new BookNotFoundExceptions("Issued Book Not available in the library!");
+        }
+
+     }
+
+
 
 
 }
