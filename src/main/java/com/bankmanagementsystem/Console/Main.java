@@ -286,6 +286,44 @@ public class Main {
                         break;
 
 
+                    /*
+                     * 6. Return Book
+                     *
+                     *    Issue a selected book to a registered student by using the
+                     *    BookServiceLayer. And also to return a book a student only can provide bookId, but I take StudentId also
+                     *    The user is required to provide both the
+                     *    Book ID and Student ID to return a book.
+                     *
+                     *    The operation may fail if:
+                     *      - The specified book does not exist.
+                     *      - The specified student is not available.
+                     *      - The book not issued yet.
+                     *
+                     *    Each expected exception is handled separately to display a
+                     *    meaningful error message to the user. A general Exception
+                     *    handler is also included to handle any unexpected errors.
+                     */
+
+
+                    case 6:
+
+                        out.println("Enter Return Book Id : ");
+                        int returnBoookId = scanner.nextInt();
+                        out.println("Enter Return Student Id : ");
+                        int returnStudentID = scanner.nextInt();
+
+                        try {
+                            bookServiceLayer.returnBook(returnBoookId, returnStudentID);
+                        }catch (BookNotFoundExceptions e){
+                            out.println("Error : " + e.getMessage());
+                        }catch (StudentNotAvailableException e){
+                            out.println("Error : " + e.getMessage());
+                        }catch (BookNotIssuedException e){
+                            out.println("Error : " + e.getMessage());
+                        }
+                        break;
+
+
                 }
 
             }catch (InputMismatchException e){
